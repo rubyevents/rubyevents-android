@@ -1,4 +1,4 @@
-package org.rubyevents.RubyEvents
+package org.rubyevents.app
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge

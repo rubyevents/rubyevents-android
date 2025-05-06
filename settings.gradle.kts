@@ -19,5 +19,5 @@ dependencyResolutionManagement {
   }
 }
 
-rootProject.name = "RubyEvents"
+rootProject.name = "org.rubyevents.app"
 include(":app")

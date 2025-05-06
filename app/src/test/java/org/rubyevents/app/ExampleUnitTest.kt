@@ -1,4 +1,4 @@
-package org.rubyevents.RubyEvents
+package org.rubyevents.app
 
 import org.junit.Test
 
