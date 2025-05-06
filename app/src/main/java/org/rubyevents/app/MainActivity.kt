@@ -1,20 +1,25 @@
 package org.rubyevents.app
 
 import android.os.Bundle
+import android.view.View
 import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import dev.hotwire.navigation.activities.HotwireActivity
+import dev.hotwire.navigation.navigator.NavigatorConfiguration
+import dev.hotwire.navigation.util.applyDefaultImeWindowInsets
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : HotwireActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
-  super.onCreate(savedInstanceState)
-  enableEdgeToEdge()
-  setContentView(R.layout.activity_main)
-  ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-    val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-    v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-    insets
+    enableEdgeToEdge()
+    super.onCreate(savedInstanceState)
+    setContentView(R.layout.activity_main)
+    findViewById<View>(R.id.main_nav_host).applyDefaultImeWindowInsets()
   }
-  }
+
+  override fun navigatorConfigurations() = listOf(
+    NavigatorConfiguration(
+      name = "main",
+      startLocation = "https://www.rubyevents.org",
+      navigatorHostId = R.id.main_nav_host
+    )
+  )
 }
