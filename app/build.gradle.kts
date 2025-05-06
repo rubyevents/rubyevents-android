@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-  namespace = "org.rubyevents.RubyEvents"
+  namespace = "org.rubyevents.app"
   compileSdk = 35
 
   defaultConfig {
-    applicationId = "org.rubyevents.RubyEvents"
+    applicationId = "org.rubyevents.app"
     minSdk = 28
     targetSdk = 35
     versionCode = 1
