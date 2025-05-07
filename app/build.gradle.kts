@@ -1,6 +1,8 @@
 plugins {
   alias(libs.plugins.android.application)
   alias(libs.plugins.kotlin.android)
+  alias(libs.plugins.kotlin.serialization)
+  alias(libs.plugins.compose.compiler)
 }
 
 android {
@@ -33,6 +35,8 @@ android {
     }
   }
   buildFeatures {
+    compose = true
+    viewBinding = true
     buildConfig = true
   }
   compileOptions {
@@ -45,15 +49,20 @@ android {
 }
 
 dependencies {
-
+  // Standard Android
   implementation(libs.androidx.core.ktx)
   implementation(libs.androidx.appcompat)
   implementation(libs.material)
   implementation(libs.androidx.activity)
   implementation(libs.androidx.constraintlayout)
-  implementation(libs.core)
-  implementation(libs.navigation.fragments)
+  implementation(platform(libs.androidx.compose.bom))
+  implementation(libs.androidx.material3)
   testImplementation(libs.junit)
   androidTestImplementation(libs.androidx.junit)
   androidTestImplementation(libs.androidx.espresso.core)
+
+  // Hotwire Native
+  implementation(libs.core)
+  implementation(libs.navigation.fragments)
+  implementation(libs.kotlinx.serialization.json) // Needed for bridge components
 }
