@@ -20,7 +20,7 @@ class MainApplication : Application() {
         Hotwire.loadPathConfiguration(
             context = this,
             location = PathConfiguration.Location(
-                remoteFileUrl = "https://www.rubyevents.org/hotwire/native/v1/ios/path_configuration.json"
+                remoteFileUrl = "${RubyEvents.current.url}/hotwire/native/v1/android/path_configuration.json"
             )
         )
 
