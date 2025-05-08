@@ -8,6 +8,7 @@ import dev.hotwire.core.config.Hotwire
 import dev.hotwire.core.turbo.config.PathConfiguration
 import dev.hotwire.navigation.config.registerBridgeComponents
 import org.rubyevents.app.hotwire.bridge.ButtonComponent
+import org.rubyevents.app.hotwire.CustomWebView
 
 class MainApplication : Application() {
     override fun onCreate() {
@@ -28,6 +29,11 @@ class MainApplication : Application() {
         Hotwire.registerBridgeComponents(
             BridgeComponentFactory("button", ::ButtonComponent)
         )
+
+        // Custom WebView
+        Hotwire.config.makeCustomWebView = { context ->
+            CustomWebView(context, null)
+        }
 
         // General configuration
         Hotwire.config.debugLoggingEnabled = BuildConfig.DEBUG
