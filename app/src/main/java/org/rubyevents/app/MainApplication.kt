@@ -6,8 +6,12 @@ import dev.hotwire.core.bridge.BridgeComponentFactory
 import dev.hotwire.core.bridge.KotlinXJsonConverter
 import dev.hotwire.core.config.Hotwire
 import dev.hotwire.core.turbo.config.PathConfiguration
+import dev.hotwire.navigation.config.defaultFragmentDestination
 import dev.hotwire.navigation.config.registerBridgeComponents
+import dev.hotwire.navigation.config.registerFragmentDestinations
 import org.rubyevents.app.hotwire.bridge.ButtonComponent
+import org.rubyevents.app.hotwire.fragments.WebFragment
+import org.rubyevents.app.hotwire.CustomWebView
 
 class MainApplication : Application() {
     override fun onCreate() {
@@ -16,6 +20,14 @@ class MainApplication : Application() {
     }
 
     private fun configureApp() {
+        // Default fragment
+        Hotwire.defaultFragmentDestination = WebFragment::class
+
+        // All available fragments
+        Hotwire.registerFragmentDestinations(
+            WebFragment::class
+        )
+
         // PathConfiguration
         Hotwire.loadPathConfiguration(
             context = this,
@@ -28,6 +40,11 @@ class MainApplication : Application() {
         Hotwire.registerBridgeComponents(
             BridgeComponentFactory("button", ::ButtonComponent)
         )
+
+        // Custom WebView
+        Hotwire.config.makeCustomWebView = { context ->
+            CustomWebView(context, null)
+        }
 
         // General configuration
         Hotwire.config.debugLoggingEnabled = BuildConfig.DEBUG
