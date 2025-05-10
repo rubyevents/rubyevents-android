@@ -1,6 +1,7 @@
 package org.rubyevents.app
 
 import android.app.Application
+import androidx.appcompat.app.AppCompatDelegate
 import dev.hotwire.core.BuildConfig
 import dev.hotwire.core.bridge.BridgeComponentFactory
 import dev.hotwire.core.bridge.KotlinXJsonConverter
@@ -20,6 +21,9 @@ class MainApplication : Application() {
     }
 
     private fun configureApp() {
+        // Disable dark mode
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+
         // Default fragment
         Hotwire.defaultFragmentDestination = WebFragment::class
 
