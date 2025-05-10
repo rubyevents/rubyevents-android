@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <!-- Generic colors -->
   <color name="black">#FF000000</color>
   <color name="white">#FFFFFFFF</color>
+
+  <!-- RubyEvents specific colors -->
+  <color name="website_background">#F8F9FA</color>
+  <color name="logo_background">#091725</color>
+  <color name="main_app_color">#DC143C</color>
+  <color name="main_app_color_variant">#F5DFE5</color>
 </resources>
