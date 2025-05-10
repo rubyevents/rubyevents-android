@@ -10,6 +10,7 @@ import dev.hotwire.core.turbo.config.PathConfiguration
 import dev.hotwire.navigation.config.defaultFragmentDestination
 import dev.hotwire.navigation.config.registerBridgeComponents
 import dev.hotwire.navigation.config.registerFragmentDestinations
+import dev.hotwire.navigation.fragments.HotwireWebBottomSheetFragment
 import org.rubyevents.app.hotwire.bridge.ButtonComponent
 import org.rubyevents.app.hotwire.fragments.WebFragment
 import org.rubyevents.app.hotwire.CustomWebView
@@ -29,7 +30,8 @@ class MainApplication : Application() {
 
         // All available fragments
         Hotwire.registerFragmentDestinations(
-            WebFragment::class
+            WebFragment::class,
+            HotwireWebBottomSheetFragment::class,
         )
 
         // PathConfiguration
