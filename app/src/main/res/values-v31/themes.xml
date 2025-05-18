@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.RubyEvents" parent="Base.Theme.RubyEvents">
+        <item name="android:splashScreenTheme">@color/logo_background</item>
+    </style>
+</resources>

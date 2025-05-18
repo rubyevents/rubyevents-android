@@ -4,6 +4,5 @@
   </style>
 
   <style name="Theme.RubyEvents" parent="Base.Theme.RubyEvents">
-    <item name="android:colorBackground">@color/logo_background</item>
   </style>
 </resources>
