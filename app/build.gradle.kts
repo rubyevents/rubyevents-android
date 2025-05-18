@@ -57,9 +57,6 @@ dependencies {
   implementation(libs.androidx.constraintlayout)
   implementation(platform(libs.androidx.compose.bom))
   implementation(libs.androidx.material3)
-  testImplementation(libs.junit)
-  androidTestImplementation(libs.androidx.junit)
-  androidTestImplementation(libs.androidx.espresso.core)
 
   // Hotwire Native
   implementation(libs.core)
