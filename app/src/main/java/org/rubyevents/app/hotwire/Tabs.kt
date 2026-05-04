@@ -45,9 +45,20 @@ private val speakers = HotwireBottomTab(
     )
 )
 
+private val signIn = HotwireBottomTab(
+    title = "Sign In",
+    iconResId = R.drawable.ic_tab_profile,
+    configuration = NavigatorConfiguration(
+        name = "sign_in",
+        navigatorHostId = R.id.settings_navigator_host,
+        startLocation = Router.signInURL
+    )
+)
+
 val tabs = listOf(
     home,
     events,
     talks,
-    speakers
+    speakers,
+    signIn
 )

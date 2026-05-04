@@ -12,6 +12,8 @@ import dev.hotwire.navigation.config.registerBridgeComponents
 import dev.hotwire.navigation.config.registerFragmentDestinations
 import dev.hotwire.navigation.fragments.HotwireWebBottomSheetFragment
 import org.rubyevents.app.hotwire.bridge.ButtonComponent
+import org.rubyevents.app.hotwire.bridge.OAuthComponent
+import org.rubyevents.app.hotwire.fragments.RefreshAppFragment
 import org.rubyevents.app.hotwire.fragments.WebFragment
 import org.rubyevents.app.hotwire.CustomWebView
 
@@ -32,6 +34,7 @@ class MainApplication : Application() {
         Hotwire.registerFragmentDestinations(
             WebFragment::class,
             HotwireWebBottomSheetFragment::class,
+            RefreshAppFragment::class,
         )
 
         // PathConfiguration
@@ -44,7 +47,8 @@ class MainApplication : Application() {
 
         // Bridge components
         Hotwire.registerBridgeComponents(
-            BridgeComponentFactory("button", ::ButtonComponent)
+            BridgeComponentFactory("button", ::ButtonComponent),
+            BridgeComponentFactory("oauth", ::OAuthComponent)
         )
 
         // Custom WebView

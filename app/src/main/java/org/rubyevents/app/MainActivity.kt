@@ -1,5 +1,6 @@
 package org.rubyevents.app
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.activity.enableEdgeToEdge
@@ -9,6 +10,7 @@ import dev.hotwire.navigation.activities.HotwireActivity
 import dev.hotwire.navigation.tabs.HotwireBottomNavigationController
 import dev.hotwire.navigation.util.applyDefaultImeWindowInsets
 import dev.hotwire.navigation.tabs.navigatorConfigurations
+import org.rubyevents.app.hotwire.bridge.OAuthComponent
 import org.rubyevents.app.hotwire.tabs
 import org.rubyevents.app.hotwire.viewmodels.MainActivityViewModel
 
@@ -22,6 +24,20 @@ class MainActivity : HotwireActivity() {
     setContentView(R.layout.activity_main)
     findViewById<View>(R.id.root).applyDefaultImeWindowInsets()
     initializeBottomTabs()
+    handleOAuthRedirect(intent)
+  }
+
+  override fun onNewIntent(intent: Intent) {
+    super.onNewIntent(intent)
+    setIntent(intent)
+    handleOAuthRedirect(intent)
+  }
+
+  private fun handleOAuthRedirect(intent: Intent?) {
+    if (intent?.action != Intent.ACTION_VIEW) return
+    val uri = intent.data ?: return
+    if (uri.scheme != "rubyevents" || uri.host != "auth") return
+    OAuthComponent.handleRedirect(uri)
   }
 
   private fun initializeBottomTabs() {

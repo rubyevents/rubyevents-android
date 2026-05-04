@@ -28,4 +28,7 @@ object Router {
 
     val speakersURL: String
         get() { return "$baseURL/speakers" }
+
+    val signInURL: String
+        get() { return "$baseURL/hotwire/native/v1/oauth" }
 }

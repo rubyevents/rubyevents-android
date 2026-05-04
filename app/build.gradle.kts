@@ -55,6 +55,7 @@ dependencies {
   implementation(libs.material)
   implementation(libs.androidx.activity)
   implementation(libs.androidx.constraintlayout)
+  implementation(libs.androidx.browser)
   implementation(platform(libs.androidx.compose.bom))
   implementation(libs.androidx.material3)
 
